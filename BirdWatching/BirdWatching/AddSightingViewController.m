@@ -62,6 +62,16 @@
     }
 }
 
+
+- (IBAction)birdNameInputEditChanged:(id)sender {
+    if ([self.birdNameInput.text length]) {
+        [self.doneButton setEnabled:YES];
+    }
+    else {
+        [self.doneButton setEnabled:NO];
+    }
+}
+
 /*
 #pragma mark - Table view data source
 

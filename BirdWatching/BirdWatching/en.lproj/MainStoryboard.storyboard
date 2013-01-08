@@ -208,6 +208,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                                     <connections>
+                                                        <action selector="birdNameInputEditChanged:" destination="zsY-sW-B3g" eventType="editingChanged" id="add-hU-1bv"/>
                                                         <outlet property="delegate" destination="zsY-sW-B3g" id="HTm-VD-SiI"/>
                                                     </connections>
                                                 </textField>
@@ -276,7 +277,7 @@
                                 <segue destination="9wr-g2-Cah" kind="unwind" identifier="CancelInput" unwindAction="cancel:" id="a82-SY-fGm"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="6cU-wK-VGJ">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="6cU-wK-VGJ">
                             <connections>
                                 <segue destination="9wr-g2-Cah" kind="unwind" identifier="ReturnInput" unwindAction="done:" id="NoZ-b1-KEz"/>
                             </connections>
@@ -285,6 +286,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="birdNameInput" destination="KE3-bJ-iLH" id="an5-oR-6eb"/>
+                        <outlet property="doneButton" destination="6cU-wK-VGJ" id="crT-oL-Xfk"/>
                         <outlet property="locationInput" destination="nML-S4-OTR" id="1vu-0j-tJ7"/>
                     </connections>
                 </tableViewController>
@@ -312,6 +314,38 @@
             <point key="canvasLocation" x="228" y="-641"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="AddSightingViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddSightingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="birdNameInputEditChanged:"/>
+                <relationship kind="outlet" name="birdNameInput" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="locationInput" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="BirdWatchingDetailViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BirdWatchingDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="birdNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="BirdWatchingMasterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BirdWatchingMasterViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

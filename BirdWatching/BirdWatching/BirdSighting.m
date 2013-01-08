@@ -6,12 +6,6 @@
 //  Copyright (c) 2013 Sly Trunk. All rights reserved.
 //
 
-// Testing changes
-
-// Another test
-
-// Yet another test
-
 #import "BirdSighting.h"
 
 @implementation BirdSighting
