@@ -2,11 +2,13 @@
 //  BirdWatchingDetailViewController.m
 //  BirdWatching
 //
-//  Created by Ben Dalziel on 1/8/13.
+//  Created by Ben Dalziel on 1/1/13.
 //  Copyright (c) 2013 Sly Trunk. All rights reserved.
 //
 
 #import "BirdWatchingDetailViewController.h"
+
+#import "BirdSighting.h"
 
 @interface BirdWatchingDetailViewController ()
 - (void)configureView;
@@ -16,10 +18,10 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
+- (void)setSighting:(BirdSighting *)sighting:(id)newSighting
 {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
+    if (_sighting != newSighting) {
+        _sighting = newSighting;
         
         // Update the view.
         [self configureView];
@@ -30,8 +32,18 @@
 {
     // Update the user interface for the detail item.
 
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+    BirdSighting *theSighting = self.sighting;
+
+    static NSDateFormatter *dateFormatter = nil;
+    if (dateFormatter == nil) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    }
+    
+    if (theSighting) {
+        self.birdNameLabel.text = theSighting.name;
+        self.locationLabel.text = theSighting.location;
+        self.dateLabel.text = [dateFormatter stringFromDate:theSighting.date];
     }
 }
 
